@@ -1,0 +1,376 @@
+.projects-page {
+  flex: 1;
+  min-height: 100vh;
+  background: #f8faff;
+  padding: 32px 36px;
+  box-sizing: border-box;
+  color: #16294a;
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.projects-header h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #14213d;
+  margin-left: -200px;
+}
+
+.projects-header p {
+  margin: 6px 0 0;
+  color: #71819a;
+  font-size: 14px;
+}
+
+.add-project-btn {
+  border: none;
+  background: #5541e8;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-project-btn:hover {
+  background: #4431d0;
+}
+
+.projects-card {
+  background: white;
+  border: 1px solid #e5eaf2;
+  border-radius: 9px;
+  box-shadow: 0 3px 12px rgba(30, 55, 90, 0.04);
+  overflow: hidden;
+}
+
+.projects-card-header {
+  padding: 20px 22px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.projects-card-header h2 {
+  margin: 0;
+  font-size: 15px;
+  color: #172c4d;
+  margin-left: -30px;
+}
+
+.projects-card-header span {
+  display: block;
+  margin-top: 5px;
+  color: #8793a7;
+  font-size: 12px;
+  margin-left: -30px;
+}
+
+.projects-empty {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #8793a7;
+  text-align: center;
+}
+
+.projects-empty svg {
+  color: #5541e8;
+  margin-bottom: 10px;
+}
+
+.projects-empty h3 {
+  margin: 0;
+  color: #243754;
+  font-size: 14px;
+}
+
+.projects-empty p {
+  margin: 6px 0 0;
+  font-size: 11px;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 22px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.project-row:last-child {
+  border-bottom: none;
+}
+
+.project-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #edf5ff;
+  color: #3179df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-info strong {
+  margin: 0;
+  color: #243754;
+  font-size: 14px;
+}
+
+.project-info p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #8491a5;
+}
+
+.project-info small {
+  margin: 0;
+  color: #243754;
+  font-size: 12px;
+}
+
+.project-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.project-actions button {
+  width: 31px;
+  height: 31px;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #efedff;
+  color: #5541e8;
+}
+
+.delete-btn {
+  background: #fff0f0;
+  color: #d45757;
+}
+
+.project-form {
+  padding: 22px;
+  border-bottom: 1px solid #edf0f5;
+  background: #fbfcff;
+}
+
+.project-form h2 {
+  margin: 0 0 18px;
+  font-size: 16px;
+  color: #172c4d;
+}
+
+.project-form input,
+.project-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dfe5ee;
+  border-radius: 7px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-family: inherit;
+  font-size: 11px;
+  color: #243754;
+  background: white;
+  outline: none;
+}
+
+.project-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.project-form input:focus,
+.project-form textarea:focus {
+  border-color: #5541e8;
+  box-shadow: 0 0 0 2px rgba(85, 65, 232, 0.08);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 5px;
+}
+
+.form-actions button {
+  border: none;
+  border-radius: 6px;
+  padding: 9px 14px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-actions button:first-child {
+  background: #eef1f5;
+  color: #66758b;
+}
+
+.form-actions button:last-child {
+  background: #5541e8;
+  color: white;
+}
+
+.form-actions button:last-child:hover {
+  background: #4431d0;
+}
+
+.image-upload-section {
+  margin-top: 10px;
+}
+
+.image-upload-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.upload-image-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f8f8ff;
+}
+
+.project-image-preview {
+  position: relative;
+  width: 180px;
+  height: 110px;
+  margin-top: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.project-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* =========================
+   PROJECT CATEGORY SELECT
+========================= */
+
+.project-form select {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+
+  padding: 10px 40px 10px 14px;
+
+  border: 1px solid #dfe3eb;
+  border-radius: 9px;
+
+  background-color: #ffffff;
+  color: #66758b;
+
+  font-size: 12px;
+  font-family: inherit;
+
+  outline: none;
+  cursor: pointer;
+
+  /* Custom dropdown arrow */
+  appearance: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237048e8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+
+/* Focus */
+
+.project-form select:focus {
+  border-color: #7048e8;
+
+  box-shadow: 0 0 0 3px rgba(112, 72, 232, 0.1);
+}
+
+/* Hover */
+
+.project-form select:hover {
+  border-color: #cfc7f5;
+}
+
+/* Options */
+
+.project-form select option {
+  padding: 10px;
+
+  background: #ffffff;
+  color: #243754;
+
+  font-size: 12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 650px) {
+  .project-form select {
+    height: 42px;
+    font-size: 13px;
+    padding-left: 12px;
+  }
+}

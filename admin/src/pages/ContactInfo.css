@@ -1,0 +1,331 @@
+/* =========================
+   CONTACT INFO PAGE
+========================= */
+
+.contact-info-admin {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  padding: 30px 34px;
+  background: #f7f8fc;
+  box-sizing: border-box;
+  overflow-y: auto;
+  color: #14213d;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.contact-info-header {
+  margin-bottom: 30px;
+}
+
+.contact-info-header h1 {
+  margin: 0;
+  margin-left: -760px;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #14213d;
+}
+
+.contact-info-header p {
+  margin: 8px 0 0;
+  margin-left: -500px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #7b89a3;
+}
+
+/* =========================
+   SAVE BUTTON
+========================= */
+
+.contact-info-save-button {
+  position: absolute;
+
+  top: 50px;
+  right: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #7048e8;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-info-save-button:hover {
+  background: #5f38d4;
+}
+
+.contact-info-save-button:active {
+  transform: translateY(1px);
+}
+
+.contact-info-save-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.contact-info-form {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.contact-info-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #e5e9f1;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(20, 30, 60, 0.035);
+}
+
+.contact-info-card h2 {
+  margin: 0 0 22px;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: #14213d;
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-info-card:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 18px;
+}
+
+.contact-info-card:first-child h2 {
+  width: 100%;
+}
+
+.contact-info-card:first-child .contact-info-group {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 0;
+}
+
+/* Description takes full width */
+.contact-info-card:first-child .contact-info-group:nth-of-type(2) {
+  flex: 1 1 100%;
+}
+
+/* =========================
+   CONTACT DETAILS
+========================= */
+
+.contact-info-card:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 18px;
+}
+
+.contact-info-card:nth-child(2) h2 {
+  width: 100%;
+}
+
+.contact-info-card:nth-child(2) .contact-info-group {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 0;
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.contact-info-group {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.contact-info-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 600;
+
+  color: #475569;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.contact-info-group input,
+.contact-info-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #dfe3eb;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-info-group input {
+  height: 44px;
+}
+
+.contact-info-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* =========================
+   INPUT FOCUS
+========================= */
+
+.contact-info-group input:focus,
+.contact-info-group textarea:focus {
+  border-color: #7048e8;
+
+  box-shadow: 0 0 0 3px rgba(112, 72, 232, 0.1);
+}
+
+.contact-info-group input::placeholder,
+.contact-info-group textarea::placeholder {
+  color: #a0a8b8;
+}
+
+/* =========================
+   SUCCESS / ERROR MESSAGE
+========================= */
+
+.contact-info-success {
+  width: 100%;
+  max-width: 1000px;
+
+  box-sizing: border-box;
+
+  margin-bottom: 18px;
+
+  padding: 11px 14px;
+
+  border: 1px solid #ccebd7;
+  border-radius: 9px;
+
+  background: #edf9f1;
+
+  color: #198754;
+
+  font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .contact-info-admin {
+    padding: 28px;
+  }
+
+  .contact-info-form {
+    max-width: 100%;
+  }
+
+  .contact-info-save-button {
+    right: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-info-admin {
+    padding: 24px 20px;
+  }
+
+  .contact-info-header h1 {
+    font-size: 28px;
+  }
+
+  .contact-info-header p {
+    font-size: 15px;
+  }
+
+  .contact-info-card {
+    padding: 20px;
+  }
+
+  .contact-info-card:first-child,
+  .contact-info-card:nth-child(2) {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info-card:first-child h2,
+  .contact-info-card:nth-child(2) h2 {
+    grid-column: auto;
+  }
+
+  .contact-info-card:first-child
+    .contact-info-group:nth-of-type(2) {
+    grid-column: auto;
+  }
+
+  .contact-info-save-button {
+    position: static;
+
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-info-admin {
+    padding: 20px 16px;
+  }
+
+  .contact-info-card {
+    padding: 18px;
+
+    border-radius: 12px;
+  }
+
+  .contact-info-card h2 {
+    font-size: 18px;
+  }
+
+  .contact-info-save-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,60 @@
+
+# ==========================================
+# DEPENDENCIES
+# ==========================================
+
+backend/node_modules/
+portfolio/node_modules/
+admin/node_modules/
+
+# Or ignore any node_modules folder
+**/node_modules/
+
+
+# ==========================================
+# ENVIRONMENT / SECRETS
+# ==========================================
+
+backend/.env
+portfolio/.env
+admin/.env
+
+.env
+.env.*
+!.env.example
+
+
+# ==========================================
+# BUILD FILES
+# ==========================================
+
+backend/dist/
+portfolio/dist/
+admin/dist/
+
+backend/build/
+portfolio/build/
+admin/build/
+
+**/dist/
+**/build/
+
+
+# ==========================================
+# LOGS
+# ==========================================
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# ==========================================
+# SYSTEM / EDITOR FILES
+# ==========================================
+
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

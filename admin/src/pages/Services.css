@@ -1,0 +1,326 @@
+.services-page {
+  flex: 1;
+  padding: 32px;
+  background: #f8faff;
+  min-height: 100vh;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.services-header h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #14213d;
+  margin-left: -200px;
+}
+
+.services-header p {
+  margin: 7px 0 0;
+  color: #77778c;
+  font-size: 14px;
+}
+
+.add-service-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: #6d4aff;
+  color: white;
+  padding: 11px 17px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-service-btn:hover {
+  opacity: 0.9;
+}
+
+.service-form-card,
+.services-card {
+  background: white;
+  border: 1px solid #e9e9f2;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 18px rgba(30, 30, 60, 0.04);
+}
+
+.service-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.service-form-header h2 {
+  margin: 0;
+  color: #18182d;
+  font-size: 19px;
+  margin-left: -40px;
+}
+
+.service-form-header p {
+  margin: 6px 0 0;
+  color: #858598;
+  font-size: 13px;
+}
+
+.close-service-btn {
+  border: none;
+  background: #f2f2f8;
+  color: #55556a;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.service-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.service-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.service-field label {
+  color: #333348;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.service-field input,
+.service-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dedee9;
+  border-radius: 8px;
+  padding: 11px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  color: #243754;
+  background: white;
+}
+
+.service-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.service-field input:focus,
+.service-field textarea:focus {
+  border-color: #6d4aff;
+  box-shadow: 0 0 0 3px rgba(109, 74, 255, 0.08);
+}
+
+.service-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.cancel-service-btn,
+.save-service-btn {
+  padding: 10px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.cancel-service-btn {
+  border: 1px solid #dddde8;
+  background: white;
+  color: #55556a;
+}
+
+.save-service-btn {
+  border: none;
+  background: #6d4aff;
+  color: white;
+}
+
+.services-card-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eeeeF4;
+}
+
+.services-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #eeeaff;
+  color: #6d4aff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-card-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #19192e;
+  margin-left: -110px;
+}
+
+.services-card-header p {
+  margin: 5px 0 0;
+  color: #858598;
+  font-size: 13px;
+}
+
+.empty-services {
+  text-align: center;
+  padding: 55px 20px;
+  color: #8b8b9c;
+}
+
+.empty-services svg {
+  color: #b0a6e8;
+}
+
+.empty-services h3 {
+  color: #3b3b50;
+  margin: 14px 0 6px;
+}
+
+.empty-services p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eeeeF4;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-item-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #f0edff;
+  color: #6d4aff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-info h3 {
+  margin: 0 0 6px;
+  color: #25253a;
+  font-size: 15px;
+}
+
+.service-info p {
+  margin: 0;
+  color: #747487;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.service-icon-name {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #6d4aff;
+  background: #f2efff;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.service-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #eeeaff;
+  color: #6d4aff;
+}
+
+.delete-btn {
+  background: #fff0f0;
+  color: #e05252;
+}
+
+@media (max-width: 700px) {
+  .services-page {
+    padding: 20px;
+  }
+
+  .services-header {
+    align-items: flex-start;
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  .service-form {
+    grid-template-columns: 1fr;
+  }
+
+  .service-field.full-width {
+    grid-column: auto;
+  }
+
+  .service-item {
+    flex-wrap: wrap;
+  }
+
+  .service-actions {
+    margin-left: 57px;
+  }
+}

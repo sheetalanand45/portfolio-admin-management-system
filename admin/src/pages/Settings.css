@@ -1,0 +1,472 @@
+.settings {
+  flex: 1;
+  padding: 32px;
+  background: #f7f7fb;
+  min-height: 100vh;
+}
+
+.settings-header {
+  margin-bottom: 28px;
+}
+
+.settings-header h1 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #14213d;
+  margin-left: -820px;
+}
+
+.settings-header p {
+  margin-top: 6px;
+  color: #77778a;
+  margin-left: -550px;
+}
+
+.settings-card {
+  background: #ffffff;
+  border: 1px solid #e8e8ef;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(20, 20, 40, 0.04);
+}
+
+.settings-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.settings-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #f0eaff;
+  color: #7048e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-card-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #20202d;
+  margin-left: -105px;
+}
+
+.settings-card-header p {
+  margin: 4px 0 0;
+  color: #858596;
+  font-size: 14px;
+}
+
+.settings-details {
+  padding: 22px 26px;
+
+  border-bottom: 1px solid #edf0f5;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+}
+
+.setting-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.setting-row strong {
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #292938;
+}
+
+.setting-row span {
+  font-size: 14px;
+
+  color: #7b89a3;
+}
+
+/* =========================
+   CHANGE USERNAME
+========================= */
+
+.username-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+
+  gap: 14px 20px;
+
+  padding: 20px 26px;
+
+  border-bottom: 1px solid #edf0f5;
+}
+
+.username-form h3 {
+  width: 100%;
+
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 650;
+
+  color: #14213d;
+}
+
+.username-field {
+  flex: 1;
+
+  min-width: 250px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.username-field label {
+  margin-bottom: 7px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #292938;
+}
+
+.username-field input {
+  width: 100%;
+  height: 44px;
+
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #dfe3eb;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #292938;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.username-field input:focus {
+  border-color: #7048e8;
+
+  box-shadow: 0 0 0 3px rgba(112, 72, 232, 0.1);
+}
+
+.username-field input::placeholder {
+  color: #a0a8b8;
+}
+
+.change-username-button {
+  height: 44px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #7048e8;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.change-username-button:hover {
+  background: #5f38d4;
+}
+
+.change-username-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.username-error,
+.username-success {
+  width: 100%;
+
+  margin: 0;
+
+  padding: 10px 13px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+}
+
+.username-error {
+  background: #fff0f0;
+  border: 1px solid #ffd4d4;
+  color: #d93025;
+}
+
+.username-success {
+  background: #edf9f1;
+  border: 1px solid #ccebd7;
+  color: #198754;
+}
+
+/* Responsive */
+
+@media (max-width: 650px) {
+  .username-form {
+    padding: 18px 20px;
+  }
+
+  .username-field {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .change-username-button {
+    width: 100%;
+  }
+}
+
+/* =========================
+   PASSWORD FORM
+========================= */
+
+.password-form {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 18px 20px;
+
+  padding: 26px;
+}
+
+.password-form h3 {
+  width: 100%;
+
+  margin: 0 0 2px;
+
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 650;
+
+  color: #14213d;
+}
+
+/* =========================
+   PASSWORD FIELDS
+========================= */
+
+.password-field {
+  flex: 1 1 calc(50% - 10px);
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.password-field:first-of-type {
+  flex: 1 1 100%;
+}
+
+.password-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 600;
+
+  color: #292938;
+}
+
+.password-field input {
+  width: 100%;
+
+  height: 44px;
+
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #dfe3eb;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #292938;
+
+  font-size: 14px;
+  font-family: inherit;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.password-field input:focus {
+  border-color: #7048e8;
+
+  box-shadow: 0 0 0 3px rgba(112, 72, 232, 0.1);
+}
+
+.password-field input::placeholder {
+  color: #a0a8b8;
+}
+
+/* =========================
+   PASSWORD MESSAGES
+========================= */
+
+.password-error,
+.password-success {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 11px 14px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+}
+
+.password-error {
+  border: 1px solid #ffd4d4;
+
+  background: #fff0f0;
+  color: #d93025;
+}
+
+.password-success {
+  border: 1px solid #ccebd7;
+
+  background: #edf9f1;
+  color: #198754;
+}
+
+/* =========================
+   CHANGE PASSWORD BUTTON
+========================= */
+
+.change-password-button {
+  width: fit-content;
+  margin-left: 340px;
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #7048e8;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.change-password-button:hover {
+  background: #5f38d4;
+}
+
+.change-password-button:active {
+  transform: translateY(1px);
+}
+
+.change-password-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+.settings-details {
+  border-top: 1px solid #eeeeF3;
+}
+
+.setting-row {
+  min-height: 70px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eeeeF3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting-row strong,
+.status-row strong {
+  display: block;
+  color: #292938;
+  margin-bottom: 5px;
+}
+
+.setting-row span,
+.status-row span {
+  color: #858596;
+  font-size: 14px;
+}
+
+.setting-row button {
+  border: none;
+  background: #f0eaff;
+  color: #7048e8;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+
+.settings-status {
+  background: #e8f8ef;
+  color: #198754 !important;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px !important;
+  font-weight: 600;
+}
+
+.danger-card {
+  border-color: #eeeeF3;
+}
+
+.logout-button {
+  border: none;
+  background: #ef4444;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.logout-button:hover {
+  opacity: 0.9;
+}
