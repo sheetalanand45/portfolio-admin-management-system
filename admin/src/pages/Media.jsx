@@ -11,7 +11,7 @@ function Media() {
     try {
       const token = localStorage.getItem("adminToken");
       const response = await fetch(
-        "http://localhost:5000/upload/images",
+        `${import.meta.env.VITE_API_URL}/upload/images`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ function Media() {
       formData.append("image", selectedFile);
 
       const response = await fetch(
-        "http://localhost:5000/upload/image",
+        `${import.meta.env.VITE_API_URL}/upload/image`,
         {
           method: "POST",
           headers: {
@@ -97,7 +97,7 @@ function Media() {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        `http://localhost:5000/upload/${id}`,
+        `${import.meta.env.VITE_API_URL}/upload/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -193,7 +193,7 @@ function Media() {
               <div className="media-item" key={item._id}>
                 <div className="media-preview">
                   <img
-                    src={`http://localhost:5000${item.path}`}
+                    src={`${import.meta.env.VITE_API_URL}${item.path}`}
                     alt={item.filename}
                   />
                 </div>
@@ -209,7 +209,7 @@ function Media() {
                         onClick={() => {
                             localStorage.setItem(
                             "selectedProfileImage",
-                            `http://localhost:5000${item.path}`
+                            `${import.meta.env.VITE_API_URL}${item.path}`
                             );
                             alert("Profile image selected!");
                         }}
@@ -221,7 +221,7 @@ function Media() {
                             onClick={() => {
                                 localStorage.setItem(
                                 "selectedHomeImage",
-                                `http://localhost:5000${item.path}`
+                                `${import.meta.env.VITE_API_URL}${item.path}`
                                 );
                                 alert("Home image selected!");
                             }}
