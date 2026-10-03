@@ -54,7 +54,7 @@ function App() {
     try {
       setSendingMessage(true);
 
-      const response = await fetch("http://localhost:5000/contact", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +90,7 @@ function App() {
   useEffect(() => {
     const fetchHome = async () => {
       try {
-        const response = await fetch("http://localhost:5000/home");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/home`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -115,7 +115,7 @@ function App() {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await fetch("http://localhost:5000/skills");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/skills`);
 
         const data = await response.json();
 
@@ -158,7 +158,7 @@ function App() {
   useEffect(() => {
     const fetchAbout = async () => {
       try {
-        const response = await fetch("http://localhost:5000/about");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/about`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -184,7 +184,7 @@ function App() {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const response = await fetch("http://localhost:5000/experience");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/experience`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -212,7 +212,7 @@ function App() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("http://localhost:5000/projects");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/projects`);
 
         const data = await response.json();
 
@@ -248,7 +248,7 @@ function App() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/blogs");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/blogs`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -274,7 +274,7 @@ function App() {
     const fetchContactInfo = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/contact-info"
+          `${import.meta.env.VITE_API_URL}/contact-info`
         );
 
         const data = await response.json();
