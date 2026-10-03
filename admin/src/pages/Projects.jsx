@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import "./Projects.css";
 
-const BACKEND_URL = "http://localhost:5000";
+const BACKEND_URL = import.meta.env.VITE_API_URL;
 
 function Projects() {
   const [projects, setProjects] = useState([]);

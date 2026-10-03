@@ -17,7 +17,9 @@ function Blogs() {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch("http://localhost:5000/blogs");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/blogs`
+      );
       const data = await response.json();
 
       if (response.ok) {
@@ -37,8 +39,8 @@ function Blogs() {
       const token = localStorage.getItem("adminToken");
 
       const url = editingBlog
-        ? `http://localhost:5000/blogs/${editingBlog._id}`
-        : "http://localhost:5000/blogs";
+        ? `${import.meta.env.VITE_API_URL}/blogs/${editingBlog._id}`
+        : `${import.meta.env.VITE_API_URL}/blogs`;
 
       const method = editingBlog ? "PUT" : "POST";
 
@@ -106,7 +108,7 @@ function Blogs() {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        `http://localhost:5000/blogs/${id}`,
+        `${import.meta.env.VITE_API_URL}/blogs/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -182,7 +184,10 @@ function Blogs() {
               </p>
             </div>
 
-            <button className="close-blog-btn" onClick={handleCancel}>
+            <button
+              className="close-blog-btn"
+              onClick={handleCancel}
+            >
               <X size={18} />
             </button>
           </div>
@@ -264,11 +269,17 @@ function Blogs() {
           </div>
 
           <div className="blog-form-actions">
-            <button className="cancel-blog-btn" onClick={handleCancel}>
+            <button
+              className="cancel-blog-btn"
+              onClick={handleCancel}
+            >
               Cancel
             </button>
 
-            <button className="save-blog-btn" onClick={handleSaveBlog}>
+            <button
+              className="save-blog-btn"
+              onClick={handleSaveBlog}
+            >
               {editingBlog ? "Update Blog" : "Save Blog"}
             </button>
           </div>
@@ -283,7 +294,9 @@ function Blogs() {
 
           <div>
             <h2>Blog Posts</h2>
-            <p>View and manage your published and draft posts.</p>
+            <p>
+              View and manage your published and draft posts.
+            </p>
           </div>
         </div>
 
@@ -291,7 +304,9 @@ function Blogs() {
           <div className="empty-blogs">
             <BookOpen size={40} />
             <h3>No blog posts yet</h3>
-            <p>Create your first blog post to get started.</p>
+            <p>
+              Create your first blog post to get started.
+            </p>
           </div>
         ) : (
           <div className="blogs-list">

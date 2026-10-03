@@ -15,7 +15,9 @@ function Services() {
 
   const fetchServices = async () => {
     try {
-      const response = await fetch("http://localhost:5000/services");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/services`
+      );
       const data = await response.json();
 
       if (response.ok) {
@@ -48,8 +50,8 @@ function Services() {
       const token = localStorage.getItem("adminToken");
 
       const url = editingService
-        ? `http://localhost:5000/services/${editingService._id}`
-        : "http://localhost:5000/services";
+        ? `${import.meta.env.VITE_API_URL}/services/${editingService._id}`
+        : `${import.meta.env.VITE_API_URL}/services`;
 
       const method = editingService ? "PUT" : "POST";
 
@@ -108,7 +110,7 @@ function Services() {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        `http://localhost:5000/services/${id}`,
+        `${import.meta.env.VITE_API_URL}/services/${id}`,
         {
           method: "DELETE",
           headers: {

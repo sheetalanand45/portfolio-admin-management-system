@@ -17,7 +17,9 @@ function Experience() {
 
   const fetchExperiences = async () => {
     try {
-      const response = await fetch("http://localhost:5000/experience");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/experience`
+      );
       const data = await response.json();
 
       if (response.ok) {
@@ -37,8 +39,8 @@ function Experience() {
       const token = localStorage.getItem("adminToken");
 
       const url = editingExperience
-        ? `http://localhost:5000/experience/${editingExperience._id}`
-        : "http://localhost:5000/experience";
+        ? `${import.meta.env.VITE_API_URL}/experience/${editingExperience._id}`
+        : `${import.meta.env.VITE_API_URL}/experience`;
 
       const method = editingExperience ? "PUT" : "POST";
 
@@ -106,7 +108,7 @@ function Experience() {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        `http://localhost:5000/experience/${id}`,
+        `${import.meta.env.VITE_API_URL}/experience/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -290,7 +292,9 @@ function Experience() {
               className="save-experience-btn"
               onClick={handleSaveExperience}
             >
-              {editingExperience ? "Update Experience" : "Save Experience"}
+              {editingExperience
+                ? "Update Experience"
+                : "Save Experience"}
             </button>
           </div>
         </div>

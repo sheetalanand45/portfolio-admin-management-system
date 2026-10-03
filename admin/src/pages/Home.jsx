@@ -24,7 +24,9 @@ function Home() {
   useEffect(() => {
     const fetchHome = async () => {
       try {
-        const response = await fetch("http://localhost:5000/home");
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/home`
+        );
         const data = await response.json();
 
         if (!response.ok) {
@@ -72,14 +74,17 @@ function Home() {
 
       const token = localStorage.getItem("adminToken");
 
-      const response = await fetch("http://localhost:5000/home", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/home`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
@@ -234,55 +239,56 @@ function Home() {
         </section>
 
         <section className="home-form-card">
-            <h2>Home Image</h2>
+          <h2>Home Image</h2>
 
-            <div className="form-group">
-                <label>Home Image URL</label>
+          <div className="form-group">
+            <label>Home Image URL</label>
 
-                <input
-                type="text"
-                name="profileImage"
-                value={formData.profileImage}
-                onChange={handleChange}
-                placeholder="Select an image from Media"
-                />
+            <input
+              type="text"
+              name="profileImage"
+              value={formData.profileImage}
+              onChange={handleChange}
+              placeholder="Select an image from Media"
+            />
+          </div>
+
+          <button
+            type="button"
+            className="home-media-button"
+            onClick={() => {
+              const selectedImage =
+                localStorage.getItem("selectedHomeImage");
+
+              if (!selectedImage) {
+                alert("Please select an image from the Media page first.");
+                return;
+              }
+
+              setFormData({
+                ...formData,
+                profileImage: selectedImage,
+              });
+
+              localStorage.removeItem("selectedHomeImage");
+
+              alert("Home image added successfully!");
+            }}
+          >
+            Use Selected Media Image
+          </button>
+
+          {formData.profileImage && (
+            <div className="home-image-preview-container">
+              <p>Preview</p>
+
+              <img
+                src={formData.profileImage}
+                alt="Home preview"
+                className="home-profile-preview"
+              />
             </div>
-
-            <button
-                type="button"
-                className="home-media-button"
-                onClick={() => {
-                const selectedImage = localStorage.getItem("selectedHomeImage");
-
-                if (!selectedImage) {
-                    alert("Please select an image from the Media page first.");
-                    return;
-                }
-
-                setFormData({
-                    ...formData,
-                    profileImage: selectedImage,
-                });
-
-                localStorage.removeItem("selectedHomeImage");
-
-                alert("Home image added successfully!");
-                }}
-            >
-                Use Selected Media Image
-            </button>
-
-            {formData.profileImage && (
-                <div className="home-image-preview-container">
-                <p>Preview</p>
-
-                <img
-                    src={formData.profileImage}
-                    alt="Home preview"
-                    className="home-profile-preview"
-                />
-                </div>
-            )}
+          )}
         </section>
 
         {error && <p className="home-error">{error}</p>}

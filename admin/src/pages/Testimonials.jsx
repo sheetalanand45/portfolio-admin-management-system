@@ -16,7 +16,9 @@ function Testimonials() {
 
   const fetchTestimonials = async () => {
     try {
-      const response = await fetch("http://localhost:5000/testimonials");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/testimonials`
+      );
       const data = await response.json();
 
       if (response.ok) {
@@ -45,8 +47,8 @@ function Testimonials() {
       const token = localStorage.getItem("adminToken");
 
       const url = editingTestimonial
-        ? `http://localhost:5000/testimonials/${editingTestimonial._id}`
-        : "http://localhost:5000/testimonials";
+        ? `${import.meta.env.VITE_API_URL}/testimonials/${editingTestimonial._id}`
+        : `${import.meta.env.VITE_API_URL}/testimonials`;
 
       const method = editingTestimonial ? "PUT" : "POST";
 
@@ -106,7 +108,7 @@ function Testimonials() {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        `http://localhost:5000/testimonials/${id}`,
+        `${import.meta.env.VITE_API_URL}/testimonials/${id}`,
         {
           method: "DELETE",
           headers: {

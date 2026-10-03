@@ -18,7 +18,9 @@ function Skills() {
 
   const fetchSkills = async () => {
     try {
-      const response = await fetch("http://localhost:5000/skills");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/skills`
+      );
       const data = await response.json();
 
       if (response.ok) {
@@ -37,91 +39,91 @@ function Skills() {
 
   const handleSaveSkill = async () => {
     try {
-        const token = localStorage.getItem("adminToken");
+      const token = localStorage.getItem("adminToken");
 
-        const url = editingSkill
-        ? `http://localhost:5000/skills/${editingSkill._id}`
-        : "http://localhost:5000/skills";
+      const url = editingSkill
+        ? `${import.meta.env.VITE_API_URL}/skills/${editingSkill._id}`
+        : `${import.meta.env.VITE_API_URL}/skills`;
 
-        const method = editingSkill ? "PUT" : "POST";
+      const method = editingSkill ? "PUT" : "POST";
 
-        const response = await fetch(url, {
+      const response = await fetch(url, {
         method: method,
         headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-            name: formData.name,
-            category: formData.category,
-            level: formData.level,
+          name: formData.name,
+          category: formData.category,
+          level: formData.level,
         }),
-        });
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (!response.ok) {
+      if (!response.ok) {
         alert(data.message || "Failed to save skill");
         return;
-        }
+      }
 
-        alert(
+      alert(
         editingSkill
-            ? "Skill updated successfully!"
-            : "Skill added successfully!"
-        );
+          ? "Skill updated successfully!"
+          : "Skill added successfully!"
+      );
 
-        setFormData({
+      setFormData({
         name: "",
         category: "",
         level: "",
-        });
+      });
 
-        setEditingSkill(null);
-        setShowForm(false);
+      setEditingSkill(null);
+      setShowForm(false);
 
-        fetchSkills();
+      fetchSkills();
     } catch (error) {
-        console.error("Error saving skill:", error);
-        alert("Unable to connect to backend.");
+      console.error("Error saving skill:", error);
+      alert("Unable to connect to backend.");
     }
   };
 
   const handleDeleteSkill = async (id) => {
     const confirmDelete = window.confirm(
-        "Are you sure you want to delete this skill?"
+      "Are you sure you want to delete this skill?"
     );
 
     if (!confirmDelete) {
-        return;
+      return;
     }
 
     try {
-        const token = localStorage.getItem("adminToken");
+      const token = localStorage.getItem("adminToken");
 
-        const response = await fetch(
-        `http://localhost:5000/skills/${id}`,
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/skills/${id}`,
         {
-            method: "DELETE",
-            headers: {
+          method: "DELETE",
+          headers: {
             Authorization: `Bearer ${token}`,
-            },
+          },
         }
-        );
+      );
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (!response.ok) {
+      if (!response.ok) {
         alert(data.message || "Failed to delete skill");
         return;
-        }
+      }
 
-        alert("Skill deleted successfully!");
+      alert("Skill deleted successfully!");
 
-        fetchSkills();
+      fetchSkills();
     } catch (error) {
-        console.error("Error deleting skill:", error);
-        alert("Unable to connect to backend.");
+      console.error("Error deleting skill:", error);
+      alert("Unable to connect to backend.");
     }
   };
 
@@ -248,17 +250,17 @@ function Skills() {
                   <button
                     className="edit-btn"
                     onClick={() => {
-                        setEditingSkill(skill);
+                      setEditingSkill(skill);
 
-                        setFormData({
+                      setFormData({
                         name: skill.name,
                         category: skill.category,
                         level: skill.level || "",
-                        });
+                      });
 
-                        setShowForm(true);
+                      setShowForm(true);
                     }}
-                    >
+                  >
                     <Pencil size={15} />
                   </button>
 

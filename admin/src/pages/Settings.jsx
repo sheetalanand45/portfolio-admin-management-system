@@ -16,62 +16,62 @@ function Settings() {
     setUsernameError("");
 
     if (!newUsername.trim()) {
-        setUsernameError("Please enter a new username.");
-        return;
+      setUsernameError("Please enter a new username.");
+      return;
     }
 
     if (newUsername.trim().length < 3) {
-        setUsernameError(
+      setUsernameError(
         "Username must be at least 3 characters long."
-        );
-        return;
+      );
+      return;
     }
 
     try {
-        setChangingUsername(true);
+      setChangingUsername(true);
 
-        const token = localStorage.getItem("adminToken");
+      const token = localStorage.getItem("adminToken");
 
-        const response = await fetch(
-        "http://localhost:5000/auth/change-username",
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/change-username`,
         {
-            method: "PUT",
-            headers: {
+          method: "PUT",
+          headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({
+          },
+          body: JSON.stringify({
             newUsername: newUsername.trim(),
-            }),
+          }),
         }
-        );
+      );
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (!response.ok) {
+      if (!response.ok) {
         throw new Error(
-            data.message || "Failed to change username"
+          data.message || "Failed to change username"
         );
-        }
+      }
 
-        setUsernameMessage(
+      setUsernameMessage(
         "Username changed successfully. Please login again."
-        );
+      );
 
-        setNewUsername("");
+      setNewUsername("");
 
-        // Old JWT contains the old username.
-        // Remove it so user must login again.
-        localStorage.removeItem("adminToken");
+      // Old JWT contains the old username.
+      // Remove it so user must login again.
+      localStorage.removeItem("adminToken");
 
-        setTimeout(() => {
+      setTimeout(() => {
         window.location.href = "/login";
-        }, 1500);
+      }, 1500);
     } catch (error) {
-        console.error("Change username error:", error);
-        setUsernameError(error.message);
+      console.error("Change username error:", error);
+      setUsernameError(error.message);
     } finally {
-        setChangingUsername(false);
+      setChangingUsername(false);
     }
   };
 
@@ -112,7 +112,7 @@ function Settings() {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        "http://localhost:5000/auth/change-password",
+        `${import.meta.env.VITE_API_URL}/auth/change-password`,
         {
           method: "PUT",
           headers: {
@@ -191,46 +191,46 @@ function Settings() {
           </div>
 
           <form
-        className="username-form"
-        onSubmit={handleChangeUsername}
-        >
-        <h3>Change Username</h3>
+            className="username-form"
+            onSubmit={handleChangeUsername}
+          >
+            <h3>Change Username</h3>
 
-        <div className="username-field">
-            <label>New Username</label>
+            <div className="username-field">
+              <label>New Username</label>
 
-            <input
-            type="text"
-            value={newUsername}
-            onChange={(e) =>
-                setNewUsername(e.target.value)
-            }
-            placeholder="Enter new username"
-            />
-        </div>
+              <input
+                type="text"
+                value={newUsername}
+                onChange={(e) =>
+                  setNewUsername(e.target.value)
+                }
+                placeholder="Enter new username"
+              />
+            </div>
 
-        {usernameError && (
-            <p className="username-error">
-            {usernameError}
-            </p>
-        )}
+            {usernameError && (
+              <p className="username-error">
+                {usernameError}
+              </p>
+            )}
 
-        {usernameMessage && (
-            <p className="username-success">
-            {usernameMessage}
-            </p>
-        )}
+            {usernameMessage && (
+              <p className="username-success">
+                {usernameMessage}
+              </p>
+            )}
 
-        <button
-            type="submit"
-            className="change-username-button"
-            disabled={changingUsername}
-        >
-            {changingUsername
-            ? "Changing..."
-            : "Change Username"}
-        </button>
-        </form>
+            <button
+              type="submit"
+              className="change-username-button"
+              disabled={changingUsername}
+            >
+              {changingUsername
+                ? "Changing..."
+                : "Change Username"}
+            </button>
+          </form>
 
         </div>
 

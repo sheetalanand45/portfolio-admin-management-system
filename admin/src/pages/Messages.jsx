@@ -17,12 +17,15 @@ function Messages() {
     try {
       const token = localStorage.getItem("adminToken");
 
-      const response = await fetch("http://localhost:5000/contact", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/contact`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       const data = await response.json();
 
@@ -49,7 +52,7 @@ function Messages() {
         const token = localStorage.getItem("adminToken");
 
         const response = await fetch(
-          `http://localhost:5000/contact/${message._id}`,
+          `${import.meta.env.VITE_API_URL}/contact/${message._id}`,
           {
             method: "PUT",
             headers: {
@@ -86,7 +89,7 @@ function Messages() {
       const token = localStorage.getItem("adminToken");
 
       const response = await fetch(
-        `http://localhost:5000/contact/${id}`,
+        `${import.meta.env.VITE_API_URL}/contact/${id}`,
         {
           method: "DELETE",
           headers: {

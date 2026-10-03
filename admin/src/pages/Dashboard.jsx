@@ -21,35 +21,37 @@ function Dashboard({ setActivePage }) {
 
   const token = localStorage.getItem("adminToken");
 
-    let username = "Admin";
+  let username = "Admin";
 
-    if (token) {
+  if (token) {
     try {
-        const payload = JSON.parse(atob(token.split(".")[1]));
-        username = payload.username || "Admin";
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      username = payload.username || "Admin";
     } catch (error) {
-        console.error("Token decode error:", error);
+      console.error("Token decode error:", error);
     }
-    }
+  }
 
   const [about, setAbout] = useState(null);
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchAbout = async () => {
-        try {
-        const response = await fetch("http://localhost:5000/about");
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/about`
+        );
         const data = await response.json();
 
         if (response.ok) {
-            setAbout(data);
+          setAbout(data);
         }
-        } catch (error) {
+      } catch (error) {
         console.error("About fetch error:", error);
-        }
+      }
     };
 
     fetchAbout();
-   }, []);
+  }, []);
 
   const [loading, setLoading] = useState(true);
 
@@ -62,12 +64,14 @@ function Dashboard({ setActivePage }) {
           testimonialsResponse,
           messagesResponse,
         ] = await Promise.all([
-          fetch("http://localhost:5000/projects"),
-          fetch("http://localhost:5000/skills"),
-          fetch("http://localhost:5000/testimonials"),
-          fetch("http://localhost:5000/contact", {
+          fetch(`${import.meta.env.VITE_API_URL}/projects`),
+          fetch(`${import.meta.env.VITE_API_URL}/skills`),
+          fetch(`${import.meta.env.VITE_API_URL}/testimonials`),
+          fetch(`${import.meta.env.VITE_API_URL}/contact`, {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+              Authorization: `Bearer ${localStorage.getItem(
+                "adminToken"
+              )}`,
             },
           }),
         ]);
@@ -129,20 +133,20 @@ function Dashboard({ setActivePage }) {
         </div>
 
         <div className="dashboard-admin-avatar">
-            {about?.profileImage ? (
-                <img
-                src={about.profileImage}
-                alt={about.name || "Admin"}
-                className="dashboard-admin-image"
-                />
-            ) : (
-                "SA"
-            )}
+          {about?.profileImage ? (
+            <img
+              src={about.profileImage}
+              alt={about.name || "Admin"}
+              className="dashboard-admin-image"
+            />
+          ) : (
+            "SA"
+          )}
 
-            <div className="dashboard-admin-info">
-                <strong>{username}</strong>
-                <span>Administrator</span>
-            </div>
+          <div className="dashboard-admin-info">
+            <strong>{username}</strong>
+            <span>Administrator</span>
+          </div>
         </div>
       </div>
 
@@ -193,12 +197,12 @@ function Dashboard({ setActivePage }) {
           {/* Projects */}
           <div className="recent-item">
             <div className="recent-icon project">
-                <FolderKanban size={18} />
+              <FolderKanban size={18} />
             </div>
 
             <div className="recent-info">
-                <strong>Projects</strong>
-                <span>Manage your portfolio projects</span>
+              <strong>Projects</strong>
+              <span>Manage your portfolio projects</span>
             </div>
 
             <button onClick={() => setActivePage("Projects")}>
@@ -242,9 +246,11 @@ function Dashboard({ setActivePage }) {
               </span>
             </div>
 
-            <button onClick={() => setActivePage("Testimonials")}>
-               Manage
-               <ArrowUpRight size={14} />
+            <button
+              onClick={() => setActivePage("Testimonials")}
+            >
+              Manage
+              <ArrowUpRight size={14} />
             </button>
 
           </div>
@@ -264,8 +270,8 @@ function Dashboard({ setActivePage }) {
             </div>
 
             <button onClick={() => setActivePage("Messages")}>
-               View
-               <ArrowUpRight size={14} />
+              View
+              <ArrowUpRight size={14} />
             </button>
 
           </div>

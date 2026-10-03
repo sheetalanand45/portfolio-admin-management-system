@@ -18,18 +18,21 @@ function About() {
 
   const fetchAbout = async () => {
     try {
-      const response = await fetch("http://localhost:5000/about");
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/about`
+      );
+
       const data = await response.json();
 
       if (response.ok && data) {
         setFormData({
-            name: data.name || "",
-            title: data.title || "",
-            description: data.description || "",
-            education: data.education || "",
-            location: data.location || "",
-            email: data.email || "",
-            profileImage: data.profileImage || "",
+          name: data.name || "",
+          title: data.title || "",
+          description: data.description || "",
+          education: data.education || "",
+          location: data.location || "",
+          email: data.email || "",
+          profileImage: data.profileImage || "",
         });
       }
     } catch (error) {
@@ -49,14 +52,17 @@ function About() {
 
       const token = localStorage.getItem("adminToken");
 
-      const response = await fetch("http://localhost:5000/about", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/about`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
@@ -87,22 +93,28 @@ function About() {
   if (loading) {
     return (
       <main className="about-page">
-        <div className="about-loading">Loading About information...</div>
+        <div className="about-loading">
+          Loading About information...
+        </div>
       </main>
     );
   }
 
   const useSelectedProfileImage = () => {
-    const selectedImage = localStorage.getItem("selectedProfileImage");
+    const selectedImage = localStorage.getItem(
+      "selectedProfileImage"
+    );
 
     if (!selectedImage) {
-        alert("Please select an image from the Media page first.");
-        return;
+      alert(
+        "Please select an image from the Media page first."
+      );
+      return;
     }
 
     setFormData({
-        ...formData,
-        profileImage: selectedImage,
+      ...formData,
+      profileImage: selectedImage,
     });
 
     localStorage.removeItem("selectedProfileImage");
@@ -115,7 +127,9 @@ function About() {
       <div className="about-header">
         <div>
           <h1>About</h1>
-          <p>Manage the information displayed in your portfolio.</p>
+          <p>
+            Manage the information displayed in your portfolio.
+          </p>
         </div>
 
         <button
@@ -136,7 +150,9 @@ function About() {
 
           <div>
             <h2>About Information</h2>
-            <p>Update your personal and professional information.</p>
+            <p>
+              Update your personal and professional information.
+            </p>
           </div>
         </div>
 
@@ -203,30 +219,30 @@ function About() {
           <div className="about-field">
             <label>Location</label>
             <input
-                type="text"
-                placeholder="e.g. India"
-                value={formData.location}
-                onChange={(e) =>
+              type="text"
+              placeholder="e.g. India"
+              value={formData.location}
+              onChange={(e) =>
                 setFormData({
-                    ...formData,
-                    location: e.target.value,
+                  ...formData,
+                  location: e.target.value,
                 })
-                }
+              }
             />
-            </div>
+          </div>
 
-            <div className="about-field">
+          <div className="about-field">
             <label>Email</label>
             <input
-                type="email"
-                placeholder="Your email address"
-                value={formData.email}
-                onChange={(e) =>
+              type="email"
+              placeholder="Your email address"
+              value={formData.email}
+              onChange={(e) =>
                 setFormData({
-                    ...formData,
-                    email: e.target.value,
+                  ...formData,
+                  email: e.target.value,
                 })
-                }
+              }
             />
           </div>
 
@@ -234,38 +250,38 @@ function About() {
             <label>Profile Image</label>
 
             <input
-                type="text"
-                placeholder="Paste image URL or select from Media"
-                value={formData.profileImage}
-                onChange={(e) =>
+              type="text"
+              placeholder="Paste image URL or select from Media"
+              value={formData.profileImage}
+              onChange={(e) =>
                 setFormData({
-                    ...formData,
-                    profileImage: e.target.value,
+                  ...formData,
+                  profileImage: e.target.value,
                 })
-                }
+              }
             />
 
             <button
-                type="button"
-                onClick={useSelectedProfileImage}
-                style={{ marginTop: "10px" }}
+              type="button"
+              onClick={useSelectedProfileImage}
+              style={{ marginTop: "10px" }}
             >
-                Use Selected Media Image
+              Use Selected Media Image
             </button>
 
             {formData.profileImage && (
-                <div style={{ marginTop: "12px" }}>
+              <div style={{ marginTop: "12px" }}>
                 <img
-                    src={formData.profileImage}
-                    alt="Profile preview"
-                    style={{
+                  src={formData.profileImage}
+                  alt="Profile preview"
+                  style={{
                     width: "120px",
                     height: "120px",
                     objectFit: "cover",
                     borderRadius: "50%",
-                    }}
+                  }}
                 />
-                </div>
+              </div>
             )}
           </div>
         </div>

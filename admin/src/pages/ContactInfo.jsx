@@ -22,7 +22,7 @@ function ContactInfo() {
     const fetchContactInfo = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/contact-info"
+          `${import.meta.env.VITE_API_URL}/contact-info`
         );
 
         const data = await response.json();
@@ -62,7 +62,7 @@ function ContactInfo() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/contact-info",
+        `${import.meta.env.VITE_API_URL}/contact-info`,
         {
           method: "PUT",
           headers: {
@@ -101,19 +101,17 @@ function ContactInfo() {
         <p>Manage the information shown in the Get In Touch section.</p>
       </div>
 
-
       <form
         className="contact-info-form"
         onSubmit={handleSubmit}
       >
         <button
-                type="submit"
-                className="contact-info-save-button"
-                disabled={saving}
-                >
-                {saving ? "Saving..." : "Save Contact Information"}
+          type="submit"
+          className="contact-info-save-button"
+          disabled={saving}
+        >
+          {saving ? "Saving..." : "Save Contact Information"}
         </button>
-
       </form>
 
       {message && (
@@ -123,7 +121,6 @@ function ContactInfo() {
       )}
 
       <form onSubmit={handleSubmit} className="contact-info-form">
-
         <div className="contact-info-card">
           <h2>Contact Section</h2>
 
@@ -196,7 +193,6 @@ function ContactInfo() {
             />
           </div>
         </div>
-
       </form>
     </div>
   );
